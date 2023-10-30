@@ -27,11 +27,6 @@ spec:
     spec:
       serviceAccountName: default
       terminationGracePeriodSeconds: 5
-      securityContext:
-        fsGroup: 1000
-        runAsGroup: 1000
-        runAsNonRoot: true
-        runAsUser: 1000
       containers:
       - name: server
         securityContext:
@@ -41,6 +36,7 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
+          runAsNonRoot: true
         image: gcr.io/google-samples/microservices-demo/emailservice:v0.8.0
         ports:
         - containerPort: 8080

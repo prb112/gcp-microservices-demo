@@ -26,10 +26,7 @@ spec:
         app: redis-cart
     spec:
       securityContext:
-        fsGroup: 1000
-        runAsGroup: 1000
         runAsNonRoot: true
-        runAsUser: 1000
       containers:
       - name: redis
         securityContext:
@@ -39,6 +36,7 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
+        # multiarch support for arm64, s390x, ppc64le, amd64
         image: redis:alpine
         ports:
         - containerPort: 6379
