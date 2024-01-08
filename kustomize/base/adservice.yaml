@@ -30,6 +30,8 @@ spec:
       containers:
       - name: server
         securityContext:
+          seccompProfile:
+            type: RuntimeDefault
           runAsNonRoot: true
           allowPrivilegeEscalation: false
           capabilities:
