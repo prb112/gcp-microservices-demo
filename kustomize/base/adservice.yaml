@@ -27,6 +27,8 @@ spec:
     spec:
       serviceAccountName: default
       terminationGracePeriodSeconds: 5
+      nodeSelector:
+        kubernetes.io/arch: amd64
       containers:
       - name: server
         securityContext:
